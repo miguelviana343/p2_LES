@@ -1,0 +1,146 @@
+.sobre__body {
+  padding: 64px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* Mission */
+.sobre__mission {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.sobre__mission-text p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-top: 16px;
+}
+
+.sobre__mission-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.mission-number {
+  background: var(--white);
+  border: 1.5px solid var(--ivory-dark);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.mission-number:hover {
+  border-color: var(--gold-pale);
+  box-shadow: var(--shadow-sm);
+}
+
+.mission-number__val {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.mission-number__label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* Values */
+.sobre__values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.value-card {
+  padding: 28px 24px;
+  background: var(--white);
+  border: 1.5px solid var(--ivory-dark);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  border-color: var(--gold-pale);
+}
+
+.value-card__icon {
+  width: 52px;
+  height: 52px;
+  background: var(--gold-pale);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.value-card__title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.value-card__desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Accreditations */
+.accred-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.accred-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--white);
+  border: 1.5px solid var(--ivory-dark);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.accred-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .sobre__mission { grid-template-columns: 1fr; }
+  .sobre__values-grid { grid-template-columns: repeat(2, 1fr); }
+  .accred-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .sobre__values-grid { grid-template-columns: 1fr; }
+  .accred-list { grid-template-columns: 1fr; }
+}
