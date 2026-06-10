@@ -1,0 +1,113 @@
+.contato__body {
+  padding: 64px 24px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Info */
+.contato__info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--white);
+  border: 1.5px solid var(--ivory-dark);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  border-color: var(--gold-pale);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-card__icon {
+  width: 44px;
+  height: 44px;
+  background: var(--gold-pale);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.info-card__label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.info-card__value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+
+.info-card__sub {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Form */
+.contato__form-wrap {
+  background: var(--white);
+  border: 1.5px solid var(--ivory-dark);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+.contato__form-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--ivory-dark);
+}
+
+.contato__submit {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Success */
+.contato__success {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.contato__success svg { color: var(--success); margin-bottom: 20px; }
+.contato__success h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+.contato__success p {
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 860px) {
+  .contato__body {
+    grid-template-columns: 1fr;
+  }
+}
