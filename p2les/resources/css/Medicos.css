@@ -1,0 +1,129 @@
+.medicos__body {
+  padding: 64px 24px 80px;
+}
+
+.medicos__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.medico-card {
+  background: var(--white);
+  border: 1.5px solid var(--ivory-dark);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.medico-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: var(--gold-pale);
+}
+
+.medico-card__top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.medico-card__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--navy-light));
+  color: var(--gold);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.medico-card__name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.medico-card__spec {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.medico-card__crm {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.medico-card__bio {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.medico-card__schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.medico-card__sched-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.medico-card__days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.medico-card__day {
+  padding: 4px 12px;
+  background: var(--gold-pale);
+  color: var(--navy);
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: 20px;
+}
+
+.medico-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+  padding: 12px 24px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  align-self: flex-start;
+}
+
+.medico-card__cta:hover {
+  background: var(--navy-light);
+  transform: translateX(4px);
+}
+
+@media (max-width: 700px) {
+  .medicos__grid { grid-template-columns: 1fr; }
+}
