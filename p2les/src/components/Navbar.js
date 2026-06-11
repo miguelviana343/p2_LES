@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import '../resources/css/Navbar.css';
 
@@ -11,10 +11,15 @@ const NAV_LINKS = [
   { to: '/contato', label: 'Contato' },
 ];
 
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  
+  const [usuario, setUsuario] = useState(null);
+  localStorage.getItem("usuarioLogado");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,7 +28,21 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => { setOpen(false); }, [location]);
+  useEffect(() => {
+    const user = JSON.parse(
+      localStorage.getItem("usuarioLogado")
+    );
+  
+    setUsuario(user);
+  }, [location]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("usuarioLogado");
+  
+    setUsuario(null);
+  
+    navigate("/login");
+  };
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
@@ -52,14 +71,42 @@ const Navbar = () => {
 
         {/* CTA */}
         <div className="navbar__actions">
-          <a href="tel:+551134567890" className="navbar__phone">
-            <Phone size={14} />
-            (11) 3456-7890
-          </a>
-          <Link to="/agendamento" className="btn-cta">
-            Agendar Consulta
-          </Link>
-        </div>
+
+  <a href="tel:+551134567890" className="navbar__phone">
+    <Phone size={14} />
+    (11) 3456-7890
+  </a>
+
+  {usuario ? (
+    <>
+      <span className="navbar__user">
+        Olá, {usuario.nome}
+      </span>
+
+      <button
+        onClick={handleLogout}
+        className="btn-logout"
+      >
+        Sair
+      </button>
+
+      <Link
+        to="/agendamento"
+        className="btn-cta"
+      >
+        Agendar Consulta
+      </Link>
+        </>
+      ) : (
+        <Link
+          to="/login"
+          className="btn-cta"
+        >
+          Entrar
+        </Link>
+      )}
+
+    </div>
 
         {/* Mobile toggle */}
         <button
