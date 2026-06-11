@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook, Linkedin } from 'lucide-react';
-import '../styles/Footer.css';
+import '../resources/css/Footer.css';
 
 const Footer = () => (
   <footer className="footer">
@@ -19,9 +19,17 @@ const Footer = () => (
           Cuidando da sua saúde com excelência, empatia e tecnologia de ponta desde 2008.
         </p>
         <div className="footer__social">
-          <a href="#" aria-label="Instagram"><Instagram size={18} /></a>
-          <a href="#" aria-label="Facebook"><Facebook size={18} /></a>
-          <a href="#" aria-label="LinkedIn"><Linkedin size={18} /></a>
+          <a href="https://instagram.com" aria-label="Instagram">
+            <Instagram size={18} />
+          </a>
+
+          <a href="https://facebook.com" aria-label="Facebook">
+            <Facebook size={18} />
+          </a>
+
+          <a href="https://linkedin.com" aria-label="LinkedIn">
+            <Linkedin size={18} />
+          </a>
         </div>
       </div>
 

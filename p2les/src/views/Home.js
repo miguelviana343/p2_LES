@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Award, Users, Clock, Star, ChevronRight } from 'lucide-react';
 import { useMedicalServiceController, useDoctorController } from '../controllers';
 import ServiceIcon from '../components/ServiceIcon';
-import './Home.css';
+import '../resources/css/Home.css';
 
 const STATS = [
   { value: '15+', label: 'Anos de experiência' },

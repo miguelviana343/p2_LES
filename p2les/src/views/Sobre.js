@@ -1,6 +1,6 @@
 import React from 'react';
 import { Award, Heart, Shield, Users } from 'lucide-react';
-import './Sobre.css';
+import '../resources/css/Sobre.css';
 
 const VALUES = [
   { icon: Heart, title: 'Cuidado Humanizado', desc: 'Cada paciente é tratado com atenção individual, empatia e respeito.' },

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Clock, ArrowRight } from 'lucide-react';
 import { useMedicalServiceController } from '../controllers';
 import ServiceIcon from '../components/ServiceIcon';
-import './Especialidades.css';
+import '../resources/css/Especialidades.css';
 
 const Especialidades = () => {
   const { services, loading } = useMedicalServiceController();

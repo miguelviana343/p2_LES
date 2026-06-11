@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, AlertCircle, Calendar, User, Mail, Phone, FileText, Clock } from 'lucide-react';
 import { useAppointmentController, useDoctorController } from '../controllers';
-import './Agendamento.css';
+import '../resources/css/Agendamento.css';
 
 const TIMES = ['08:00','08:30','09:00','09:30','10:00','10:30','11:00','11:30','14:00','14:30','15:00','15:30','16:00','16:30','17:00','17:30'];
 

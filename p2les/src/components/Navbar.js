@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
-import '../styles/Navbar.css';
+import '../resources/css/Navbar.css';
 
 const NAV_LINKS = [
   { to: '/', label: 'Início' },
