@@ -8,12 +8,16 @@ import Especialidades from './views/Especialidades';
 import Medicos from './views/Medicos';
 import Agendamento from './views/Agendamento';
 import Contato from './views/Contato';
+import Login from './views/Login';
+import Cadastro from './views/Cadastro';
 import './resources/css/global.css';
 
 const App = () => (
   <BrowserRouter>
     <Navbar />
     <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/cadastro" element={<Cadastro />} />
       <Route path="/" element={<Home />} />
       <Route path="/sobre" element={<Sobre />} />
       <Route path="/especialidades" element={<Especialidades />} />
