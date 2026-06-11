@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Calendar } from 'lucide-react';
 import { useDoctorController } from '../controllers';
-import '../../resources/css/Medicos,css';
+import '../resources/css/Medicos.css';
 
 const Medicos = () => {
   const { doctors, loading } = useDoctorController();

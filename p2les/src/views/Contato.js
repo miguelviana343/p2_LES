@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { useContactController } from '../controllers';
-import '../../resources/css/Contato.css';
+import '../resources/css/Contato.css';
 
 const INITIAL = { name: '', email: '', phone: '', subject: '', message: '' };
 

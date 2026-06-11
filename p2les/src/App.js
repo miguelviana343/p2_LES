@@ -8,7 +8,7 @@ import Especialidades from './views/Especialidades';
 import Medicos from './views/Medicos';
 import Agendamento from './views/Agendamento';
 import Contato from './views/Contato';
-import './styles/global.css';
+import './resources/css/global.css';
 
 const App = () => (
   <BrowserRouter>
