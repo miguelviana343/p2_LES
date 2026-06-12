@@ -1,0 +1,88 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "nome": "Admin",
+      "email": "admin@gmail.com",
+      "senha": "123456",
+      "telefone": "(11) 99999-0000"
+    },
+    {
+      "nome": "teste",
+      "email": "teste@gmai.com",
+      "telefone": "119999999999",
+      "senha": "123",
+      "id": "jWhMc4FHDws"
+    }
+  ],
+  "doctors": [
+    {
+      "id": "d1",
+      "name": "Dra. Ana Luísa Ferreira",
+      "specialty": "Cardiologia",
+      "crm": "CRM/SP 123456",
+      "bio": "Especialista em cardiologia preventiva com mais de 15 anos de experiência.",
+      "email": "ana@cliniavitae.com.br",
+      "phone": "(11) 98888-1111",
+      "schedule": [
+        "Segunda",
+        "Quarta",
+        "Sexta"
+      ]
+    },
+    {
+      "id": "d2",
+      "name": "Dr. Marcos Oliveira",
+      "specialty": "Ortopedia",
+      "crm": "CRM/SP 234567",
+      "bio": "Ortopedista com foco em medicina esportiva e cirurgia minimamente invasiva.",
+      "email": "marcos@cliniavitae.com.br",
+      "phone": "(11) 97777-2222",
+      "schedule": [
+        "Terça",
+        "Quinta"
+      ]
+    },
+    {
+      "id": "d3",
+      "name": "Dra. Camila Rocha",
+      "specialty": "Dermatologia",
+      "crm": "CRM/SP 345678",
+      "bio": "Dermatologista clínica e estética com especialização em dermatoscopia.",
+      "email": "camila@cliniavitae.com.br",
+      "phone": "(11) 96666-3333",
+      "schedule": [
+        "Segunda",
+        "Terça",
+        "Quinta"
+      ]
+    }
+  ],
+  "appointments": [
+    {
+      "id": "a1",
+      "patientName": "Admin",
+      "patientEmail": "admin@gmail.com",
+      "patientPhone": "(11) 99999-0000",
+      "doctorId": "d1",
+      "date": "2026-06-20",
+      "time": "09:00",
+      "reason": "Consulta inicial de rotina",
+      "status": "confirmed",
+      "createdAt": "2026-06-12T10:00:00.000Z"
+    },
+    {
+      "id": "lNLcnAnGwBM",
+      "patientName": "Admin",
+      "patientEmail": "admin@gmail.com",
+      "patientPhone": "(11) 99999-0000",
+      "doctorId": "d2",
+      "date": "2026-11-10",
+      "time": "15:00",
+      "reason": "dor",
+      "status": "confirmed",
+      "createdAt": "2026-06-12T22:28:39.303Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
