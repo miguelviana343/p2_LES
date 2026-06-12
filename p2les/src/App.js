@@ -33,6 +33,7 @@ const AppShell = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/admin/cadastrar-medico" element={<ProtectedRoute><CadastrarMedico /></ProtectedRoute>} />
         <Route path="/sobre" element={<ProtectedRoute><Sobre /></ProtectedRoute>} />
         <Route path="/especialidades" element={<ProtectedRoute><Especialidades /></ProtectedRoute>} />
         <Route path="/medicos" element={<ProtectedRoute><Medicos /></ProtectedRoute>} />
