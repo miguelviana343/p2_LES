@@ -4,16 +4,22 @@ import "../resources/css/Auth.css";
 
 const Login = () => {
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [erro, setErro] = useState("");
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = async (e) => {
+  e.preventDefault();
 
-    const usuarios =
-      JSON.parse(localStorage.getItem("usuarios")) || [];
+  try {
+    setErro("");
+
+    // Busca os usuários cadastrados
+    const response = await fetch(
+      "http://localhost:3001/users"
+    );
+
+    const usuarios = await response.json();
 
     const usuario = usuarios.find(
       (u) =>
@@ -22,17 +28,23 @@ const Login = () => {
     );
 
     if (!usuario) {
-        setErro("E-mail ou senha inválidos.");
-        return;
+      setErro("E-mail ou senha inválidos.");
+      return;
     }
 
+    // Salva o usuário logado
     localStorage.setItem(
       "usuarioLogado",
       JSON.stringify(usuario)
     );
 
-    navigate("/agendamento");
-  };
+    navigate("/");
+
+  } catch (error) {
+    setErro("Não foi possível realizar o login.");
+    console.error(error);
+  }
+};
 
   return (
     <main className="auth">

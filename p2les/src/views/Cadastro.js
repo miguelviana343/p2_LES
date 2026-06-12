@@ -12,42 +12,57 @@ const Cadastro = () => {
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState("");
 
-  const handleCadastro = (e) => {
+  const handleCadastro = async (e) => {
     e.preventDefault();
 
-    const usuarios =
-      JSON.parse(localStorage.getItem("usuarios")) || [];
+    try {
+      setErro("");
+      setSucesso("");
 
-    const usuarioExistente = usuarios.find(
-      (u) => u.email === email
-    );
+      // Busca usuários já cadastrados
+      const response = await fetch("http://localhost:3001/users");
+      const usuarios = await response.json();
 
-    if (usuarioExistente) {
-      setErro("Já existe uma conta cadastrada com este e-mail.");
-      return;
+      const usuarioExistente = usuarios.find(
+        (u) => u.email === email
+      );
+
+      if (usuarioExistente) {
+        setErro("Já existe uma conta cadastrada com este e-mail.");
+        return;
+      }
+
+      const novoUsuario = {
+        nome,
+        email,
+        telefone,
+        senha,
+      };
+
+      // Cadastra o usuário
+      await fetch("http://localhost:3001/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(novoUsuario),
+      });
+
+      setSucesso("Cadastro realizado com sucesso!");
+
+      setNome("");
+      setEmail("");
+      setTelefone("");
+      setSenha("");
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
+
+    } catch (error) {
+      setErro("Erro ao realizar cadastro.");
+      console.error(error);
     }
-
-    const novoUsuario = {
-      id: Date.now(),
-      nome,
-      email,
-      telefone,
-      senha,
-    };
-
-    usuarios.push(novoUsuario);
-
-    localStorage.setItem(
-      "usuarios",
-      JSON.stringify(usuarios)
-    );
-
-    setErro("");
-    setSucesso("Cadastro realizado com sucesso!");
-
-    setTimeout(() => {
-      navigate("/login");
-    }, 2000);
   };
 
   return (

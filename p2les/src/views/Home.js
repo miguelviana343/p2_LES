@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, Award, Users, Clock, Star, ChevronRight } from 'lucide-react';
-import { useMedicalServiceController, useDoctorController } from '../controllers';
+import { useMedicalServiceController, useDoctorController, useAppointmentController } from '../controllers';
 import ServiceIcon from '../components/ServiceIcon';
 import '../resources/css/Home.css';
 
@@ -28,6 +28,22 @@ const TESTIMONIALS = [
 const Home = () => {
   const { services, loading: svcLoading } = useMedicalServiceController();
   const { doctors, loading: docLoading } = useDoctorController();
+  const { appointments } = useAppointmentController();
+
+  const lastConfirmedAppointment = useMemo(() => {
+    return [...appointments]
+      .filter((appointment) => appointment.status === 'confirmed')
+      .sort((a, b) => new Date(b.createdAt || 0) - new Date(a.createdAt || 0))[0] || null;
+  }, [appointments]);
+
+  const doctor = doctors.find((item) => item.id === lastConfirmedAppointment?.doctorId);
+
+  const formatAppointmentDate = (date) =>
+    new Date(`${date}T12:00:00`).toLocaleDateString('pt-BR', {
+      weekday: 'short',
+      day: '2-digit',
+      month: 'short',
+    });
 
   return (
     <main className="home">
@@ -61,15 +77,33 @@ const Home = () => {
           </div>
           <div className="hero__card-wrap">
             <div className="hero__card">
-              <div className="hero__card-icon">+</div>
-              <div className="hero__card-badge">Próxima consulta</div>
-              <p className="hero__card-name">Dra. Ana Luísa Ferreira</p>
-              <p className="hero__card-spec">Cardiologia</p>
+              <Link to="/agendamento" className="hero__card-icon hero__card-icon--button" aria-label="Agendar nova consulta">
+                +
+              </Link>
+              <div className="hero__card-badge">
+                {lastConfirmedAppointment ? 'Última consulta confirmada' : 'Nenhuma consulta confirmada'}
+              </div>
+              <p className="hero__card-name">
+                {lastConfirmedAppointment
+                  ? doctor?.name || 'Médico em atualização'
+                  : 'Faça seu primeiro agendamento'}
+              </p>
+              <p className="hero__card-spec">
+                {lastConfirmedAppointment
+                  ? doctor?.specialty || 'Especialidade disponível'
+                  : 'A consulta confirmada aparecerá aqui'}
+              </p>
               <div className="hero__card-time">
                 <Clock size={14} />
-                <span>Amanhã, 10:30</span>
+                <span>
+                  {lastConfirmedAppointment
+                    ? `${formatAppointmentDate(lastConfirmedAppointment.date)} · ${lastConfirmedAppointment.time}`
+                    : 'Aguardando nova consulta'}
+                </span>
               </div>
-              <div className="hero__card-confirm">Confirmada ✓</div>
+              <div className="hero__card-confirm">
+                {lastConfirmedAppointment ? 'Confirmada ✓' : 'Sem confirmação ainda'}
+              </div>
             </div>
           </div>
         </div>
