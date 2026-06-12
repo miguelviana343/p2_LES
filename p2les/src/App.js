@@ -11,7 +11,6 @@ import Contato from './views/Contato';
 import Login from './views/Login';
 import Cadastro from './views/Cadastro';
 import CadastrarMedico from './views/CadastrarMedico';
-import AgendarConsulta from './views/AgendarConsulta';
 import './resources/css/global.css';
 
 const ProtectedRoute = ({ children }) => {
@@ -34,8 +33,6 @@ const AppShell = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route path="/cadastro" element={<Cadastro />} />
-        <Route path="/cadastrar-medico" element={<ProtectedRoute><CadastrarMedico /></ProtectedRoute>} />
-        <Route path="/agendar-consulta" element={<ProtectedRoute><AgendarConsulta /></ProtectedRoute>} />
         <Route path="/sobre" element={<ProtectedRoute><Sobre /></ProtectedRoute>} />
         <Route path="/especialidades" element={<ProtectedRoute><Especialidades /></ProtectedRoute>} />
         <Route path="/medicos" element={<ProtectedRoute><Medicos /></ProtectedRoute>} />
