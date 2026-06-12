@@ -166,6 +166,13 @@
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero__card-icon--button:hover,
+.hero__card-icon--button:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(201, 168, 76, 0.35);
 }
 
 .hero__card-badge {
